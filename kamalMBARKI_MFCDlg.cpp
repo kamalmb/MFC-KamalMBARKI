@@ -87,11 +87,10 @@ void CkamalMBARKIMFCDlg::UpdateComboBox()
 	std::vector<std::string> strings = { "Lyon", "Marseille", "St Etienne", "Orange", "Orléans", "Strasbourg" };
 
 	// List of cities
-	// Utilisez la DLL pour obtenir des chaînes de caractères aléatoires
+	//  pour obtenir des chaînes de caractères aléatoires
 	RandomCityGenerator generator;
 
 	//link combo box with membre variable
-	//CkamalMBARKIMFCDlg::m_comboBox.SubclassDlgItem(IDC_COMBO1, this);
 	auto cities = generator.RandomCities(strings);
 
 	for (auto& str : cities)
@@ -105,9 +104,7 @@ void CkamalMBARKIMFCDlg::UpdateComboBox()
 	m_comboBox.Invalidate(TRUE);
 	
 	UpdateData(FALSE);
-	// Delete all of the text from the combo box's edit control.
-	//m_comboBox.SetEditSel(0, -1);
-	//m_comboBox.Clear();
+	
 }
 
 
@@ -129,7 +126,6 @@ BOOL CkamalMBARKIMFCDlg::OnInitDialog()
 	 m_comboBox.SubclassDlgItem(IDC_COMBO2, this);
 	 m_comboBox.ResetContent();
 	 
-	// UpdateComboBox();
 	 
 	// Ajouter l'élément de menu "À propos de..." au menu Système.
 
@@ -222,5 +218,5 @@ void CkamalMBARKIMFCDlg::OnCbnSelchangeCombo1()
 void CkamalMBARKIMFCDlg::OnCbnDropdownCombo1()
 {
 	UpdateComboBox();
-	// Force the combo box to redraw (if necessary)  m_comboBox.Invalidate(TRUE);
+	// Forcee  combo box pour se redessiner 
 }
