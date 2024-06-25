@@ -79,6 +79,10 @@ END_MESSAGE_MAP()
 
 void CkamalMBARKIMFCDlg::UpdateComboBox()
 {
+
+	// Forcer le ComboBox à se redessiner 
+	m_comboBox.Invalidate(TRUE);
+
 	m_comboBox.ResetContent();
 	std::vector<std::string> strings = { "Lyon", "Marseille", "St Etienne", "Orange", "Orléans", "Strasbourg" };
 
@@ -92,15 +96,18 @@ void CkamalMBARKIMFCDlg::UpdateComboBox()
 
 	for (auto& str : cities)
 	{
-		m_comboBox.AddString(CString(str.c_str()));
+		m_comboBox.AddString(CStringW(str.c_str())); // Convertir std::string to CString
 		std::cout << str<<" ";
 	}
 	std::cout << std::endl;
 	
-	// Forcer le ComboBox à se redessiner
+	// Forcer le ComboBox à se redessiner 
 	m_comboBox.Invalidate(TRUE);
 	
 	UpdateData(FALSE);
+	// Delete all of the text from the combo box's edit control.
+	//m_comboBox.SetEditSel(0, -1);
+	//m_comboBox.Clear();
 }
 
 
@@ -120,6 +127,7 @@ BOOL CkamalMBARKIMFCDlg::OnInitDialog()
 	
 	//link combo box with membre variable
 	 m_comboBox.SubclassDlgItem(IDC_COMBO2, this);
+	 m_comboBox.ResetContent();
 	 
 	// UpdateComboBox();
 	 
@@ -149,7 +157,7 @@ BOOL CkamalMBARKIMFCDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Définir une petite icône
 
 	// TODO: ajoutez ici une initialisation supplémentaire
-	
+	//UpdateData(FALSE);
 
 	return TRUE;  // retourne TRUE, sauf si vous avez défini le focus sur un contrôle
 }
@@ -214,6 +222,5 @@ void CkamalMBARKIMFCDlg::OnCbnSelchangeCombo1()
 void CkamalMBARKIMFCDlg::OnCbnDropdownCombo1()
 {
 	UpdateComboBox();
-	
 	// Force the combo box to redraw (if necessary)  m_comboBox.Invalidate(TRUE);
 }
