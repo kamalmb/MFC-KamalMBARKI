@@ -90,7 +90,6 @@ void CkamalMBARKIMFCDlg::UpdateComboBox()
 	//  pour obtenir des chaînes de caractères aléatoires
 	RandomCityGenerator generator;
 
-	//link combo box with membre variable
 	auto cities = generator.RandomCities(strings);
 
 	for (auto& str : cities)
@@ -217,6 +216,7 @@ void CkamalMBARKIMFCDlg::OnCbnSelchangeCombo1()
 
 void CkamalMBARKIMFCDlg::OnCbnDropdownCombo1()
 {
+	//l'appelle de la fonction updatecombobx pour mettre aléatoire à nouveau la liste des villes  
 	UpdateComboBox();
-	// Forcee  combo box pour se redessiner 
+	
 }
