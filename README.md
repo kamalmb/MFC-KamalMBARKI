@@ -2,4 +2,6 @@
 
 ### Video Demo
 
-[![Watch the video](MFC_demo.mp4)
+You can watch a demo of the project by clicking the link below:
+
+[Watch the video demo](MFC_demo.mp4)
